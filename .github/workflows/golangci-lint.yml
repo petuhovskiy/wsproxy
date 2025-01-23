@@ -24,6 +24,9 @@ jobs:
           egress-policy: audit
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Set GOROOT
+        run: |
+          echo "GOROOT=$(go env GOROOT)" >> $GITHUB_ENV
       - name: golangci-lint
         uses: golangci/golangci-lint-action@ec5d18412c0aeab7936cb16880d708ba2a64e1ae # v6.2.0
         with:
